@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notas/pages/view_movie.dart';
 import 'package:notas/widget/button.dart';
 
 void main() {
@@ -12,15 +13,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const MyHomePage(
+              title: "Visualização de filmes",
+            ),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/movie': (context) => const ViewMovie(),
+      },
       theme: ThemeData(
         textTheme: const TextTheme(
-          bodySmall: TextStyle( fontWeight: FontWeight.bold),
-          titleSmall: TextStyle(color: Colors.blue, fontStyle: FontStyle.italic),
+          bodySmall: TextStyle(fontWeight: FontWeight.bold),
+          titleSmall:
+              TextStyle(color: Colors.blue, fontStyle: FontStyle.italic),
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -35,57 +45,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
-          children: [
-            const Text(
-              "Titulo",
-              style: TextStyle(fontSize: 40),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            const Text(
-              "Texto com sublinhado",
-              style: TextStyle(fontWeight: FontWeight.bold, decoration: TextDecoration.underline),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            const Text(
-              "Texto com sublinhado",
-              style: TextStyle(color: Colors.blue, fontStyle: FontStyle.italic),
-              textAlign: TextAlign.center,
-            ),
-            Row(children: [
-              Button(
-                onPressed: () => (),
-                text: "Botão com borda",
-                border: 20,
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              Button(
-                onPressed: () => (),
-                text: "Botão com cor de fundo",
-                bg: Colors.pinkAccent,
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              Button(
-                onPressed: () => (),
-                text: "Botão com icone",
-                icon: Icons.smart_button,
-              ),
-            ]),
-          ],
-        ));
+      children: [
+        Button(
+            onPressed: () {
+              Navigator.pushNamed(context, '/movie');
+            },
+            text: "filme 1")
+      ],
+    ));
   }
 }
