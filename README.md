@@ -1,6 +1,6 @@
-# notas
+# App de notas de filmes e series
 
-A new Flutter project.
+App de notas de filmes e series para a matéria de desenvolvimento mobile, em conjunto com a Samara Cassie
 
 ## Getting Started
 
