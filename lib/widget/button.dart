@@ -9,32 +9,32 @@ class Button extends StatelessWidget {
 
   const Button(
       {this.border = 0,
-        this.bg = Colors.indigo,
-        this.icon = Icons.plus_one,
-        required this.onPressed,
-        required this.text,
-        super.key});
+      this.bg = Colors.indigo,
+      this.icon,
+      required this.onPressed,
+      required this.text,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ButtonStyle(
+          foregroundColor: const WidgetStatePropertyAll(Colors.white),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(border), // Raio dos cantos
+              borderRadius: BorderRadius.circular(border),
             ),
           ),
           backgroundColor: WidgetStatePropertyAll(bg),
         ),
         onPressed: onPressed,
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              icon,
-            ),
-            const SizedBox(
-              width: 4,
-            ),
+            if (icon != null) ...[
+              Icon(icon),
+              const SizedBox(width: 4),
+            ],
             Text(text)
           ],
         ));

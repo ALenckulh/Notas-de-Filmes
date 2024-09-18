@@ -15,11 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       initialRoute: '/',
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => const MyHomePage(
-              title: "Visualização de filmes",
-            ),
-        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/': (context) => const MyHomePage(),
         '/movie': (context) => const ViewMovie(),
       },
       theme: ThemeData(
@@ -36,9 +32,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -48,14 +42,19 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Button(
-            onPressed: () {
-              Navigator.pushNamed(context, '/movie');
-            },
-            text: "filme 1")
-      ],
-    ));
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Button(
+              onPressed: () {
+                Navigator.pushNamed(context, '/movie');
+              },
+              text: "Filme 1",
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
