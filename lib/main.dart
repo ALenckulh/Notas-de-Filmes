@@ -19,13 +19,17 @@ class MyApp extends StatelessWidget {
         '/movie': (context) => const ViewMovie(),
       },
       theme: ThemeData(
-        textTheme: const TextTheme(
-          bodySmall: TextStyle(fontWeight: FontWeight.bold),
-          titleSmall:
-              TextStyle(color: Colors.blue, fontStyle: FontStyle.italic),
+        colorScheme: const ColorScheme(
+          primary: Color(0xFF5C65C0), // #301c41
+          secondary: Color(0xFF413B6B), // #5c65c0
+          surface: Colors.white70,
+          error: Colors.red,
+          onPrimary: Colors.white,
+          onSecondary: Colors.white,
+          onSurface: Colors.black,
+          onError: Colors.white,
+          brightness: Brightness.light,
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-        useMaterial3: true,
       ),
     );
   }
