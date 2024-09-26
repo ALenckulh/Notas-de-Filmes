@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:notas/data/avaliacoes.dart';
 import 'package:notas/themes/colors.dart';
 import 'package:notas/widget/header.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class ViewMovie extends StatelessWidget {
+class ViewMovie extends StatefulWidget {
   final String movieId = "1";
 
   const ViewMovie({
@@ -16,8 +17,47 @@ class ViewMovie extends StatelessWidget {
   }
 
   @override
+  _ViewMovieState createState() => _ViewMovieState();
+}
+
+class _ViewMovieState extends State<ViewMovie> {
+  late List<String> comentarios = [];
+  final TextEditingController _commentController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _loadComments();
+  }
+
+  // Método para buscar filme por ID
+  Map<String, dynamic>? buscarFilmePorId(String id) {
+    List<Map<String, dynamic>> avaliacoes = carregarAvaliacoes();
+    return avaliacoes.firstWhere((filme) => filme['id'] == id);
+  }
+
+  // Carregar comentários do local storage
+  Future<void> _loadComments() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? savedComments =
+        prefs.getStringList('comentarios_${widget.movieId}');
+    setState(() {
+      comentarios = savedComments ?? [];
+    });
+  }
+
+  // Salvar comentários no local storage
+  Future<void> _saveComment(String comment) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      comentarios.add(comment);
+    });
+    await prefs.setStringList('comentarios_${widget.movieId}', comentarios);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    Map<String, dynamic>? filme = buscarFilmePorId(movieId);
+    Map<String, dynamic>? filme = buscarFilmePorId(widget.movieId);
 
     return Scaffold(
       appBar: const Header(),
@@ -148,14 +188,21 @@ class ViewMovie extends StatelessWidget {
                     ), // Título dos comentários
                     const SizedBox(height: 12),
                     ..._buildComments(
-                        List<String>.from(filme['comentarios']), context),
+                        List<String>.from(filme['comentarios']) + comentarios,
+                        context),
                     const SizedBox(height: 20),
                     TextField(
+                      controller: _commentController,
                       decoration: InputDecoration(
                         hintText: "Adicione um comentário...",
                         suffixIcon: IconButton(
                           icon: const Icon(Icons.send),
-                          onPressed: () {},
+                          onPressed: () {
+                            if (_commentController.text.isNotEmpty) {
+                              _saveComment(_commentController.text);
+                              _commentController.clear();
+                            }
+                          },
                         ),
                       ),
                     ),
@@ -201,14 +248,9 @@ class ViewMovie extends StatelessWidget {
   }
 
   // Método para construir a lista de comentários
-  List<Widget> _buildComments(
-    List<String> comentarios,
-    BuildContext context,
-  ) {
+  List<Widget> _buildComments(List<String> comentarios, BuildContext context) {
     if (comentarios.isEmpty) {
-      return [
-        Text("Nenhum comentário disponível.")
-      ]; // Mensagem caso não haja comentários
+      return [Text("Nenhum comentário disponível.")];
     }
 
     return comentarios.map<Widget>((comentario) {
@@ -219,14 +261,28 @@ class ViewMovie extends StatelessWidget {
           elevation: 2,
           child: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Text(
-              comentario,
-              style: Theme.of(context).primaryTextTheme.bodyMedium?.copyWith(
-                    color: MyColors.neutral150,
-                    fontWeight: FontWeight.w500,
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.person,
+                  color: MyColors.neutral,
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                Flexible(
+                  child: Text(
+                    comentario,
+                    style:
+                        Theme.of(context).primaryTextTheme.bodyMedium?.copyWith(
+                              color: MyColors.neutral150,
+                              fontWeight: FontWeight.w500,
+                            ),
+                    textAlign: TextAlign.justify,
                   ),
-              textAlign: TextAlign.justify,
-            ), // Texto do comentário
+                ),
+              ],
+            ),
           ),
         ),
       );

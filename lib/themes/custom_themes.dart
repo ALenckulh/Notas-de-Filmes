@@ -63,13 +63,21 @@ class CustomThemes {
       textTheme: ButtonTextTheme.primary,
     ),
     inputDecorationTheme: InputDecorationTheme(
+      prefixIconColor: MyColors.neutral,
+      labelStyle: const TextStyle(
+        color: MyColors.neutral100,
+      ),
+      hintStyle: const TextStyle(
+        color: MyColors.neutral100,
+      ),
+      suffixIconColor: MyColors.primary,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: const BorderSide(color: MyColors.neutral50),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: MyColors.primary, width: 2),
+        borderSide: const BorderSide(color: MyColors.primary, width: 1),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
