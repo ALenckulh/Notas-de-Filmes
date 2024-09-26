@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notas/pages/view_movie.dart';
+import 'package:notas/themes/custom_themes.dart';
 import 'package:notas/widget/button.dart';
 
 void main() {
@@ -18,19 +19,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MyHomePage(),
         '/movie': (context) => const ViewMovie(),
       },
-      theme: ThemeData(
-        colorScheme: const ColorScheme(
-          primary: Color(0xFF5C65C0), // #301c41
-          secondary: Color(0xFF413B6B), // #5c65c0
-          surface: Colors.white70,
-          error: Colors.red,
-          onPrimary: Colors.white,
-          onSecondary: Colors.white,
-          onSurface: Colors.black,
-          onError: Colors.white,
-          brightness: Brightness.light,
-        ),
-      ),
+      theme: CustomThemes().defaultTheme,
     );
   }
 }

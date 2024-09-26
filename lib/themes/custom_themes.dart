@@ -25,7 +25,7 @@ class CustomThemes {
       ),
       titleLarge: TextStyle(
         fontSize: 34,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
       ),
       titleMedium: TextStyle(
         fontSize: 24,
@@ -62,21 +62,26 @@ class CustomThemes {
       buttonColor: MyColors.primary,
       textTheme: ButtonTextTheme.primary,
     ),
-    inputDecorationTheme: const InputDecorationTheme(
+    inputDecorationTheme: InputDecorationTheme(
+      prefixIconColor: MyColors.neutral,
+      labelStyle: const TextStyle(
+        color: MyColors.neutral100,
+      ),
+      hintStyle: const TextStyle(
+        color: MyColors.neutral100,
+      ),
+      suffixIconColor: MyColors.primary,
       border: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: MyColors.primary,
-        ),
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(color: MyColors.neutral50),
       ),
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: MyColors.primary,
-        ),
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(color: MyColors.primary, width: 1),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: MyColors.primary,
-        ),
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(color: MyColors.neutral),
       ),
     ),
   );
