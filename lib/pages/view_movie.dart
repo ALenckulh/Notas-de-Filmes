@@ -8,8 +8,8 @@ class ViewMovie extends StatefulWidget {
   final String movieId = "1";
 
   const ViewMovie({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   Map<String, dynamic>? buscarFilmePorId(String id) {
     List<Map<String, dynamic>> avaliacoes = carregarAvaliacoes();
@@ -230,18 +230,19 @@ class _ViewMovieState extends State<ViewMovie> {
 
     // Add full stars
     for (int i = 0; i < fullStars; i++) {
-      stars.add(Icon(Icons.star, color: Colors.amber)); // Full star icon
+      stars.add(const Icon(Icons.star, color: Colors.amber)); // Full star icon
     }
 
     // Add half star if applicable
     if (hasHalfStar) {
-      stars.add(Icon(Icons.star_half, color: Colors.amber)); // Half star icon
+      stars.add(
+          const Icon(Icons.star_half, color: Colors.amber)); // Half star icon
     }
 
     // Add empty stars
     for (int i = 0; i < emptyStars; i++) {
-      stars.add(
-          Icon(Icons.star_outline, color: MyColors.neutral)); // Empty star icon
+      stars.add(const Icon(Icons.star_outline,
+          color: MyColors.neutral)); // Empty star icon
     }
 
     return stars; // Return the list of star icons
@@ -250,7 +251,7 @@ class _ViewMovieState extends State<ViewMovie> {
   // Método para construir a lista de comentários
   List<Widget> _buildComments(List<String> comentarios, BuildContext context) {
     if (comentarios.isEmpty) {
-      return [Text("Nenhum comentário disponível.")];
+      return [const Text("Nenhum comentário disponível.")];
     }
 
     return comentarios.map<Widget>((comentario) {
