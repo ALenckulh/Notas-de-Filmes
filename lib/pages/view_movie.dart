@@ -11,11 +11,6 @@ class ViewMovie extends StatefulWidget {
     super.key,
   });
 
-  Map<String, dynamic>? buscarFilmePorId(String id) {
-    List<Map<String, dynamic>> avaliacoes = carregarAvaliacoes();
-    return avaliacoes.firstWhere((filme) => filme['id'] == id);
-  }
-
   @override
   _ViewMovieState createState() => _ViewMovieState();
 }

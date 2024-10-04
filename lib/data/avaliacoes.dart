@@ -23,71 +23,67 @@ List<Map<String, dynamic>> carregarAvaliacoes() {
     },
     {
       "id": "2",
-      "titulo": "Comédia Romântica",
-      "nota": 3.8,
-      "qntAvaliacao": 150,
+      "titulo": "Batman",
+      "nota": 1.8,
+      "qntAvaliacao": 1150,
       "descricao": "Uma comédia romântica leve e divertida.",
       "comentarios": [
         "Uma boa escolha para uma noite descontraída.",
         "Os personagens são cativantes."
       ],
       "img": [
-        "https://www.themoviedb.org/t/p/w500/gGSmxzVkQK0xFfGRmGqT1A86hT1.jpg",
-        "https://www.themoviedb.org/t/p/w500/zQeo2RwfIHUu7Bfm0ClkN1reXQL.jpg"
+        "batman.jpeg",
       ],
-      "genero": "Comédia"
+      "genero": "Ação"
     },
     {
       "id": "3",
-      "titulo": "Thriller Psicológico",
-      "nota": 4.2,
-      "qntAvaliacao": 300,
+      "titulo": "Coringa",
+      "nota": 4.8,
+      "qntAvaliacao": 37300,
       "descricao": "Um thriller psicológico cheio de reviravoltas.",
       "comentarios": [
         "Tive que rever algumas partes para entender tudo!",
         "Uma experiência realmente intensa."
       ],
       "img": [
-        "https://www.themoviedb.org/t/p/w500/pA7lgkJyknaUr7lwxf3Bg6XBqpk.jpg",
-        "https://www.themoviedb.org/t/p/w500/n55qyD9dWuE1ap68H7k6ChzCbeM.jpg"
+        "download.jpeg"
       ],
       "genero": "Suspense"
     },
     {
       "id": "4",
-      "titulo": "Clássico Imperdível",
+      "titulo": "Divertida Mente",
       "nota": 5.0,
-      "qntAvaliacao": 500,
+      "qntAvaliacao": 5359,
       "descricao": "Um clássico imperdível que definiu uma geração.",
       "comentarios": [
         "Simplesmente perfeito!",
         "A trilha sonora é inesquecível."
       ],
       "img": [
-        "https://www.themoviedb.org/t/p/w500/u7EstfGJ3Zbzj6fpuDgk5SiKxuT.jpg",
-        "https://www.themoviedb.org/t/p/w500/slrU9Vt4XKiIX1I9l77tPhhu7P4.jpg"
+        "divertidaMente.jpeg"
       ],
-      "genero": "Drama"
+      "genero": "Animação"
     },
     {
       "id": "5",
-      "titulo": "Animação Encantadora",
-      "nota": 3.5,
-      "qntAvaliacao": 100,
+      "titulo": "Os Croods",
+      "nota": 4.5,
+      "qntAvaliacao": 18010,
       "descricao": "Uma animação encantadora para todas as idades.",
       "comentarios": [
         "As cores são vibrantes e alegres.",
         "Ótima para crianças e adultos."
       ],
       "img": [
-        "https://www.themoviedb.org/t/p/w500/uYFYFxZRWfUHXixosi8CircR5xX.jpg",
-        "https://www.themoviedb.org/t/p/w500/gGSmxzVkQK0xFfGRmGqT1A86hT1.jpg"
+        "croods.jpeg"
       ],
       "genero": "Animação"
     },
     {
       "id": "6",
-      "titulo": "Aventura Intergaláctica",
+      "titulo": "Fabrica de Chocolate",
       "nota": 4.3,
       "qntAvaliacao": 220,
       "descricao": "Uma jornada intergaláctica cheia de aventura.",
@@ -96,14 +92,13 @@ List<Map<String, dynamic>> carregarAvaliacoes() {
         "Uma história bem elaborada."
       ],
       "img": [
-        "https://images.pexels.com/photos/2502081/pexels-photo-2502081.jpeg",
-        "https://images.pexels.com/photos/2605500/pexels-photo-2605500.jpeg"
+        "chocolate.jpeg"
       ],
       "genero": "Ficção Científica"
     },
     {
       "id": "7",
-      "titulo": "Romance Dramático",
+      "titulo": "Deadpool",
       "nota": 3.6,
       "qntAvaliacao": 90,
       "descricao": "Uma narrativa romântica com nuances dramáticas.",
@@ -112,8 +107,7 @@ List<Map<String, dynamic>> carregarAvaliacoes() {
         "Uma boa história para refletir."
       ],
       "img": [
-        "https://images.pexels.com/photos/5560064/pexels-photo-5560064.jpeg",
-        "https://images.pexels.com/photos/9613329/pexels-photo-9613329.jpeg"
+        "deedBull.jpeg"
       ],
       "genero": "Romance"
     },
