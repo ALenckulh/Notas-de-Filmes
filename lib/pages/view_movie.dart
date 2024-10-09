@@ -5,17 +5,15 @@ import 'package:notas/widget/header.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ViewMovie extends StatefulWidget {
-  final String movieId = "1";
+  final String movieId;
 
-  const ViewMovie({
-    super.key,
-  });
+  const ViewMovie(this.movieId, {super.key});
 
   @override
-  _ViewMovieState createState() => _ViewMovieState();
+  ViewMovieState createState() => ViewMovieState();
 }
 
-class _ViewMovieState extends State<ViewMovie> {
+class ViewMovieState extends State<ViewMovie> {
   late List<String> comentarios = [];
   final TextEditingController _commentController = TextEditingController();
 
