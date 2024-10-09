@@ -23,67 +23,67 @@ List<Map<String, dynamic>> carregarAvaliacoes() {
     },
     {
       "id": "2",
-      "titulo": "Batman",
-      "nota": 1.8,
-      "qntAvaliacao": 1150,
+      "titulo": "Comédia Romântica",
+      "nota": 3.8,
+      "qntAvaliacao": 150,
       "descricao": "Uma comédia romântica leve e divertida.",
       "comentarios": [
         "Uma boa escolha para uma noite descontraída.",
         "Os personagens são cativantes."
       ],
       "img": [
-        "batman.jpeg",
+        "avatar.png"
       ],
-      "genero": "Ação"
+      "genero": "Fantasia"
     },
     {
       "id": "3",
-      "titulo": "Coringa",
-      "nota": 4.8,
-      "qntAvaliacao": 37300,
+      "titulo": "Thriller Psicológico",
+      "nota": 4.2,
+      "qntAvaliacao": 300,
       "descricao": "Um thriller psicológico cheio de reviravoltas.",
       "comentarios": [
         "Tive que rever algumas partes para entender tudo!",
         "Uma experiência realmente intensa."
       ],
       "img": [
-        "download.jpeg"
+        "batman.png"
       ],
-      "genero": "Suspense"
+      "genero": "Ação"
     },
     {
       "id": "4",
-      "titulo": "Divertida Mente",
+      "titulo": "Clássico Imperdível",
       "nota": 5.0,
-      "qntAvaliacao": 5359,
+      "qntAvaliacao": 500,
       "descricao": "Um clássico imperdível que definiu uma geração.",
       "comentarios": [
         "Simplesmente perfeito!",
         "A trilha sonora é inesquecível."
       ],
       "img": [
-        "divertidaMente.jpeg"
+        "chocolate.png"
       ],
-      "genero": "Animação"
+      "genero": "Fantasia"
     },
     {
       "id": "5",
-      "titulo": "Os Croods",
-      "nota": 4.5,
-      "qntAvaliacao": 18010,
+      "titulo": "Animação Encantadora",
+      "nota": 3.5,
+      "qntAvaliacao": 100,
       "descricao": "Uma animação encantadora para todas as idades.",
       "comentarios": [
         "As cores são vibrantes e alegres.",
         "Ótima para crianças e adultos."
       ],
       "img": [
-        "croods.jpeg"
+        "moana.png"
       ],
       "genero": "Animação"
     },
     {
       "id": "6",
-      "titulo": "Fabrica de Chocolate",
+      "titulo": "Aventura Intergaláctica",
       "nota": 4.3,
       "qntAvaliacao": 220,
       "descricao": "Uma jornada intergaláctica cheia de aventura.",
@@ -92,13 +92,14 @@ List<Map<String, dynamic>> carregarAvaliacoes() {
         "Uma história bem elaborada."
       ],
       "img": [
-        "chocolate.jpeg"
+        "https://images.pexels.com/photos/2502081/pexels-photo-2502081.jpeg",
+        "https://images.pexels.com/photos/2605500/pexels-photo-2605500.jpeg"
       ],
       "genero": "Ficção Científica"
     },
     {
       "id": "7",
-      "titulo": "Deadpool",
+      "titulo": "Romance Dramático",
       "nota": 3.6,
       "qntAvaliacao": 90,
       "descricao": "Uma narrativa romântica com nuances dramáticas.",
@@ -107,7 +108,8 @@ List<Map<String, dynamic>> carregarAvaliacoes() {
         "Uma boa história para refletir."
       ],
       "img": [
-        "deedBull.jpeg"
+        "https://images.pexels.com/photos/5560064/pexels-photo-5560064.jpeg",
+        "https://images.pexels.com/photos/9613329/pexels-photo-9613329.jpeg"
       ],
       "genero": "Romance"
     },
@@ -294,6 +296,11 @@ List<Map<String, dynamic>> carregarAvaliacoes() {
 }
 ''';
 
-  Map<String, dynamic> jsonMap = jsonDecode(jsonData);
-  return List<Map<String, dynamic>>.from(jsonMap['avaliacoes']);
+  Map<String, dynamic> jsonMap;
+  try {
+    jsonMap = jsonDecode(jsonData);
+    return List<Map<String, dynamic>>.from(jsonMap['avaliacoes']);
+  } catch (e) {
+    throw Exception("Erro ao decodificar JSON: $e");
+  }
 }
