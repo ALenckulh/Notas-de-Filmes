@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Button(
+              type: ButtonType.fill,
               onPressed: () {
                 Navigator.pushNamed(context, '/movie');
               },
